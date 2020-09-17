@@ -16,6 +16,7 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 sh 'sudo chmod 777 ./scripts/deploy.sh'
+                cd 'chaperootodo_client'
                 sh './scripts/deploy.sh'
             }
         }
