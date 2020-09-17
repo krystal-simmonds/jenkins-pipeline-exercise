@@ -10,7 +10,7 @@ pipeline {
         stage('Install Docker & Docker-Compose') {
             steps {
                sh 'sudo chmod 777 ./scripts/install-docker-dc.sh' 
-               sh '.scripts/install-docker-dc.sh'
+               sh './scripts/install-docker-dc.sh'
             }
         }
         stage('Deploy Application') {
