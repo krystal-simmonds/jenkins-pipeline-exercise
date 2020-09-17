@@ -1,21 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Repository') {
+        stage('Get or Clone Repo') {
             steps {
-                rm -r "chaperootodo_client"
-                git clone "https://gitlab.com/qacdevops/chaperootodo_client"
+                sh './scripts/clone-repo.sh'
             }
         }
         stage('Install Docker & Docker-Compose') {
             steps {
-               sudo curl "https://get.docker.com | sudo bash"
-               sudo curl -L '"https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
+               sh '.scripts/install-docker-dc.sh'
             }
         }
         stage('Deploy Application') {
             steps {
-                sudo "docker-compose up -d"
+                sh './scripts/deploy.sh'
             }
         }
     }
