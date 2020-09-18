@@ -1,4 +1,5 @@
 #!/bin/bash
+cd chaperootodo_client
 
 sudo chown jenkins /var/run/docker.sock
 
